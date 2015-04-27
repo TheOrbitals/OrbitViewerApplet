@@ -1,11 +1,13 @@
 OrbitViewer Version 1.3
 ============================
 
-  Copyright(c) 1996-2001 Osamu Ajiki <osam-a@astroarts.co.jp>
-    AstroArts Inc.  <http://www.astroarts.com/>
-  Copyright(c) 2000-2001 Ron Baalke <baalke@zagami.jpl.nasa.gov>
-    NASA/JPL  <http://neo.jpl.nasa.gov/>
-  All Rights Reserved.
+Copyright &copy; 1996-2001 Osamu Ajiki <osam-a@astroarts.co.jp>
+AstroArts Inc.  <http://www.astroarts.com/>
+
+Copyright &copy; 2000-2001 Ron Baalke <baalke@zagami.jpl.nasa.gov>
+NASA/JPL  <http://neo.jpl.nasa.gov/>
+
+All Rights Reserved.
 
 
 ## ABSTRACT
@@ -14,8 +16,7 @@ OrbitViewer is an interactive applet that displays the orbit of small
 bodies (comets or asteroids) in the solar system in 3D.  The orbit may
 be played forwards or backwards like a movie.
 
-History:
-This applet was created by Osamu Ajiki (AstroArts Inc.) in 1996. It was
+History: This applet was created by Osamu Ajiki (AstroArts Inc.) in 1996. It was
 further modified by Ron Baalke (NASA/JPL) in 2000-2001.
 
 
@@ -79,7 +80,7 @@ This package contains two sample HTML files.
 To view orbit of small bodies, you need to know the orbital elements
 of the object.  You can find it on the WEB. (see LINK section)
 
-(1) COMETS
+### COMETS
 
 In general, orbital elements of comets are represented by six
 parameters: time of perihelion passage (T), eccentricity (e),
@@ -113,7 +114,7 @@ Example (Comet Halley)
       <PARAM NAME="Eqnx"  VALUE="1950.0">
     </APPLET>
 
-(2) ASTEROIDS
+### ASTEROIDS
 
 In general, orbital elements of asteroiods are represented by seven
 parameters: epoch, mean anomaly (M), eccentricity (e), semi-major axis
@@ -152,23 +153,22 @@ Example (Asteroid Ceres)
 ## DOWNLOAD
 
 Latest version of this applet is located at following URL:
+http://www.astroarts.com/products/OrbitViewer/index.html
 
-  http://www.astroarts.com/products/OrbitViewer/index.html
 
-
-## LINK
+## LINKS
 
 Near Earth Object Program - Orbits (NASA/JPL)
-  http://neo.jpl.nasa.gov/orbits/
+http://neo.jpl.nasa.gov/orbits/
 
 Asteroid Orbit Viewer (AstroArts Inc.)
-  http://www.astroarts.com/simulation/asteroid-orbit.php
+http://www.astroarts.com/simulation/asteroid-orbit.php
 
 Cometary Orbit Viewer (AstroArts Inc.)
-  http://www.astroarts.com/simulation/cometary-orbit.php
+http://www.astroarts.com/simulation/cometary-orbit.php
 
 Asteroid Orbital Elements (Lowell Observatory)
-  ftp://ftp.lowell.edu/pub/elgb/astorb.html
+ftp://ftp.lowell.edu/pub/elgb/astorb.html
 
 Elements & Ephemerides: Observable Comets (IAU)
-  http://cfa-www.harvard.edu/iau/Ephemerides/Comets/index.html
+http://cfa-www.harvard.edu/iau/Ephemerides/Comets/index.html
