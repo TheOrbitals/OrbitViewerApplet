@@ -78,7 +78,7 @@ This package contains two sample HTML files.
 ## PARAMETERS
 
 To view orbit of small bodies, you need to know the orbital elements
-of the object.  You can find it on the WEB. (see LINK section)
+of the object.  You can find it on the WEB. (see LINKS section)
 
 ### COMETS
 
