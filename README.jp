@@ -1,0 +1,182 @@
+OrbitViewer Version 1.3
+
+  Copyright(c) 1996-2001 Osamu Ajiki <osam-a@astroarts.co.jp>
+    AstroArts Inc.  <http://www.astroarts.com/>
+  Copyright(c) 2000-2001 Ron Baalke <baalke@zagami.jpl.nasa.gov>
+    NASA/JPL  <http://neo.jpl.nasa.gov/>
+  All Rights Reserved.
+
+
+概要
+----
+
+OrbitViewerは、太陽系をめぐる小天体(彗星・小惑星)の軌道を表示するJAVAア
+プレットです。天体の軌道要素さえわかれば、その軌道を3次元でグラフィカル
+に表示できます。また、軌道を任意の方向から見たり、時間を追って天体の動き
+をアニメーション表示することも可能です。
+
+本プログラムは1996年に安喰修(AstroArts Inc.)によって作成され、その後の修
+正を経た後、2000年にRon Baalke (NASA/JPL)によって拡張されたものです。
+
+
+著作権
+------
+
+OrbitViewer はフリーソフトウェアです。Free Software Foundation が公表し
+た GNU General Public License (GNU 一般公有使用許諾)のバージョン 2 ある
+いはそれ以降の各バージョンの中からいずれかを選択し、そのバージョンが定め
+る条項に従って OrbitViewer を再配布または変更することができます。
+
+OrbitViewer は有用であるとは思いますが、頒布にあたっては、市場性及び特定
+目的適合性についての暗黙の保証を含めて、いかなる保証も行ないません。詳細
+については GNU General Public License をお読みください。
+
+
+コンパイル
+----------
+
+パッケージは、tar/gzによってアーカイブ、圧縮されています。まず展開ユーテ
+ィリティを使ってこれを展開します。UNIX環境でコマンドラインから展開する場
+合には、以下のようにします。
+
+  gzip -dc OrbitViewer-1.3.tar.gz | tar xf -
+
+これによってOrbitViewer-1.3というディレクトリが作成され、この中に配布ファ
+イルが展開されます。
+
+パッケージには、実行可能なバイトコードアーカイブである
+「OrbitViewer.jar」が含まれているため、あらためてコンパイルする必要はあ
+りません。自分でコンパイルする場合には、JAVAコンパイラが必要です。例えば
+Sun Microsystemsが配布しているJDKを使う場合、次のコマンドを実行すること
+でOrbitViewerのすべてのソースがコンパイルされ、実行可能なclassファイルが
+生成されます。
+
+  javac OrbitViewer.java
+
+配布アーカイブにはMakefileが含まれています。makeユーティリティを使用でき
+る環境の場合、次のコマンドでコンパイルからjarファイルの作成までを行なう
+ことができます。
+
+  make
+
+※OrbitViewerは、多くの環境(特に古いバージョンのWEBブラウザ)でも実行でき
+  るように、JAVA API 1.0のみを使用しています。そのため、コンパイル時に
+  「deprecated」といった警告が表示されることがあります。
+
+
+
+実行
+----
+
+OrbitViewerの実行には、JAVAアプレットの実行可能なWEBブラウザ、または
+appletviewerが必要です。WEBブラウザを使用する場合、HTMLファイルを「フ
+ァイル」→「ファイルを開く」のようなメニューを使って開いてください。
+appletviewerを使用する場合は、次のようにコマンドを実行します。
+
+  appletviewer halley.html
+
+なお、パッケージには以下の2つのサンプルHTMLが付属しています。
+
+  halley.html (ハレー彗星の軌道)
+  ceres.html  (小惑星セレスの軌道)
+
+
+パラメータ
+----------
+
+天体の軌道を表示するには、その天体の軌道要素が必要です。ほとんどの天体の
+軌道要素は、WEB上を検索すれば見つかります（「リンク」参照）。
+
+(1) 彗星
+
+彗星の軌道要素は、一般に近日点通過時刻(T)、離心率(e)、近日点距離(q)、近
+日点引数(ω)、昇交点黄経(Ω)、軌道傾斜角(i)の6つ数値で表わされます。さら
+に、近日点引数、昇交点黄経、軌道傾斜角にはその分点が表示されます。
+
+OrbitViewerでは、以下のようなパラメータを与えることで彗星の軌道を表示す
+ることができます。
+
+  Name    天体の名称
+  T       近日点通過時刻(T)
+  e       離心率(e)
+  q       近日点距離(q:AU)
+  Peri    近日点引数(ω:度)
+  Node    昇交点黄経(Ω:度)
+  Incl    軌道傾斜角(i:度)
+  Eqnx    分点(年)
+
+例 (ハレー彗星)
+
+  <APPLET CODE="OrbitViewer.class"
+   ARCHIVE="OrbitViewer.jar"  WIDTH=510 HEIGHT=460>
+  <PARAM NAME="Name"  VALUE="1P/Halley">
+  <PARAM NAME="T"     VALUE="19860209.7695">
+  <PARAM NAME="e"     VALUE="0.967267">
+  <PARAM NAME="q"     VALUE="0.587096">
+  <PARAM NAME="Peri"  VALUE="111.8466">
+  <PARAM NAME="Node"  VALUE=" 58.1440">
+  <PARAM NAME="Incl"  VALUE="162.2393">
+  <PARAM NAME="Eqnx"  VALUE="1950.0">
+  </APPLET>
+
+(2) 小惑星
+
+小惑星の軌道要素は、一般に元期(Epoch)、平均近点角(M)、離心率(e)、軌道長
+半径(a)、近日点引数(ω)、昇交点黄経(Ω)、軌道傾斜角(i)の7つの数値で表わ
+されます。さらに、近日点引数、昇交点黄経、軌道傾斜角にはその分点が表示さ
+れます。
+
+OrbitViewerでは、以下のようなパラメータを与えることで小惑星の軌道を表示
+することができます。
+
+  Name    天体の名称
+  Epoch   元期(Epoch)
+  M       平均近点角(M:度)
+  e       離心率(e)
+  a       軌道長半径(a:AU)
+  Peri    近日点引数(ω:度)
+  Node    昇交点黄経(Ω:度)
+  Incl    軌道傾斜角(i:度)
+  Eqnx    分点(年)
+
+例 (小惑星セレス)
+
+  <APPLET CODE="OrbitViewer.class"
+   ARCHIVE="OrbitViewer.jar"  WIDTH=510 HEIGHT=460>
+  <PARAM NAME="Name"  VALUE="Ceres(1)">
+  <PARAM NAME="Epoch" VALUE="19991118.5">
+  <PARAM NAME="M"     VALUE="356.648434">
+  <PARAM NAME="e"     VALUE="0.07831587">
+  <PARAM NAME="a"     VALUE="2.76631592">
+  <PARAM NAME="Peri"  VALUE=" 73.917708">
+  <PARAM NAME="Node"  VALUE=" 80.495123">
+  <PARAM NAME="Incl"  VALUE=" 10.583393">
+  <PARAM NAME="Eqnx"  VALUE="2000.0">
+  </APPLET>
+
+
+DOWNLOAD
+--------
+
+本アプレットの最新バージョンは、以下のURLからダウンロードできます。
+
+  http://www.astroarts.co.jp/products/OrbitViewer/index-j.html
+
+
+リンク
+------
+
+地球に接近する小天体 - 軌道 (NASA/JPL)
+  http://neo.jpl.nasa.gov/orbits/
+
+小惑星軌道ビュアー (AstroArts Inc.)
+  http://www.astroarts.co.jp/simulation/asteroid-orbit-j.php
+
+彗星軌道ビュアー (AstroArts Inc.)
+  http://www.astroarts.co.jp/simulation/cometary-orbit-j.php
+
+小惑星の軌道要素 (Lowell Observatory)
+  ftp://ftp.lowell.edu/pub/elgb/astorb.html
+
+軌道要素と位置推算: 観測可能な彗星 (IAU)
+  http://cfa-www.harvard.edu/iau/Ephemerides/Comets/index.html
