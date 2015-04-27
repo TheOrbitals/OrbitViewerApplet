@@ -143,7 +143,7 @@ public class Comet {
 				  / (1.0 + 9.0 * this.fE)) * fC1 * fX1;
 		double fX = this.fQ * fD1 * (1.0 - fTanV2 * fTanV2);
 		double fY = 2.0 * this.fQ * fD1 * fTanV2;
-		return new Xyz(fX, fY, 0.0);;
+		return new Xyz(fX, fY, 0.0);
 	}
 
 	/**
